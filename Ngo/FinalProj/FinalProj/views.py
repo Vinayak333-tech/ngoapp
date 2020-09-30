@@ -23,7 +23,7 @@ def home(request):
     array = list(dic.values())
     array.sort(reverse=True, key=lambda item: item[2])
     best_users = array[0:min(len(array), 5)]
-    val=Ngo.objects.all().filter(founder=request.user)
+    
 
-    return render(request, 'home.html', {'ngos': ngos, 'count': count, 'best_users': best_users,'val':val})
+    return render(request, 'home.html', {'ngos': ngos, 'count': count, 'best_users': best_users,})
 

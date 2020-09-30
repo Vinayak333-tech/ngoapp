@@ -14,16 +14,16 @@ class Ngo(models.Model):
         return str(self.name)
 
 
-
 class NgoRequirementDetail(models.Model):
-    ngo=models.ForeignKey(Ngo,on_delete=models.CASCADE)
-    req=models.CharField(max_length=100)
-    quantity=models.IntegerField()
+    ngo = models.ForeignKey(Ngo, on_delete=models.CASCADE)
+    req = models.CharField(max_length=100)
+    quantity = models.IntegerField()
+
 
 class Donator(models.Model):
-    first_name = models.CharField(max_length=50,blank=True)
-    last_name = models.CharField(max_length=50,blank=True)
-    phone = models.CharField(max_length=10,unique=True)
+    first_name = models.CharField(max_length=50, blank=True)
+    last_name = models.CharField(max_length=50, blank=True)
+    phone = models.CharField(max_length=10, unique=True)
 
     def __str__(self):
         return self.phone
@@ -32,7 +32,7 @@ class Donator(models.Model):
 class DonationDetail(models.Model):
     donator = models.ForeignKey(Donator, on_delete=models.CASCADE)
     ngo = models.ForeignKey(Ngo, on_delete=models.CASCADE)
-    req=models.CharField(max_length=100,default='')
+    req = models.CharField(max_length=100, default='')
     quantity = models.IntegerField()
 
     def __str__(self):

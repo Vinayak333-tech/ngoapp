@@ -117,7 +117,7 @@ USE_TZ = True
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_USE_TLS = True
 EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_HOST_USER = 'rzppaymentnotification@gmail.com'
+EMAIL_HOST_USER = 'ngo.testmail@gmail.com'
 EMAIL_HOST_PASSWORD = '8879492968'
 EMAIL_PORT = 587
 

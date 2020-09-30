@@ -32,10 +32,15 @@ html,body,h1,h2,h3,h4 {font-family:"Lato", sans-serif}
     <form class="logout" action="{% url 'accounts:logout'%}" method="POST">
       {% csrf_token %}
       <div class="button" style="padding-left: 1000px;">
-      <button style="border: none;" type="submit">Logout</button>
-      <a style="margin-left: 40px; text-decoration: none;" href="{% url 'accounts:ngodetail' %}">Go to Profile</a>
+        <a style="margin-left: 40px; text-decoration: none;" href="{% url 'accounts:ngodetail' %}">Go to Profile |</a>
+        <a style="margi-left: 85px; text-decoration: none;" href="{% url 'accounts:reset' %}"> Reset Password |</a>
+      <button style="border: none;" type="submit"> Logout</button>
+
       </div>
   </form>
+  <div>
+
+  </div>
     {% else %}
     <div class="w3-col s6">
       <a href="{% url 'accounts:signup'%}" class="w3-button w3-block">Signup</a>
@@ -170,7 +175,7 @@ html,body,h1,h2,h3,h4 {font-family:"Lato", sans-serif}
     <span class="w3-xlarge w3-bottombar w3-border-dark-grey w3-padding-16">Contact Us</span>
   </div>
 
-    <form class="w3-container" action="{% url 'home' %}" method="post">
+    <form class="w3-container" action="{% url 'accounts:contact' %}" method="post">
     <div class="w3-section">
       <label>Name</label>
       <input class="w3-input w3-border w3-hover-border-black" style="width:100%;" type="text" name="Name" required>

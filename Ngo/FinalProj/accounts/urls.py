@@ -22,4 +22,5 @@ urlpatterns = [
     path('ngodetail/donators/', views.donators, name='donators'),
     path('donater/signup/',views.d_signup,name='d_signup'),
     path('donators/', views.donators, name='donators'),
+    path('contact/',views.contactus, name='contact')
     ]

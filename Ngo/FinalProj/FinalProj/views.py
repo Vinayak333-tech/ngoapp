@@ -25,20 +25,3 @@ def home(request):
     best_users = array[0:min(len(array), 5)]
     return render(request, 'home.html', {'ngos': ngos, 'count': count, 'best_users': best_users})
 
-
-@csrf_exempt
-def contact(request):
-    if request.method == 'GET':
-        email = request.POST.get('Email')
-        subject = request.POST.get('Subject')
-        message = request.POST.get('Message')
-        print(email)
-        send_mail(
-            subject,
-            message,
-            settings.EMAIL_HOST_USER,
-            [email]
-        )
-        return render(request, 'home.html')
-    return redirect('home.html')
-

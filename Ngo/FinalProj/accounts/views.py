@@ -109,8 +109,6 @@ def donation_confirm(request, phone):
                     ins.donator = dins
                     ins.save()
                     return redirect('home')
-
-
     else:
         form = DonationConfirmForm()
     return render(request, 'accounts/donate_confirm.html', {'phone': phone, 'form': form})

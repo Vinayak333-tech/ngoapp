@@ -1,15 +1,22 @@
+{% load crispy_forms_tags %}
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Reset Password</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 </head>
 <body>
-<h2 align="center">Change Your Password</h2>
-<form method="post" class="">
+    <h1 align="center"
+    style="padding-top: 40px;padding-bottom: 10px;font-weight: 600;font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; background-color:#66d9ff";>Reset Password</h1>
+    <div class="container-fluid" align="center"
+    style="padding-top: 50px;
+    padding-bottom: 50px;
+     background-color:#ccf2ff">
+    <form method="post">
     {%csrf_token%}
-    <div class="">{{form.as_p}}</div>
+    {{form|crispy}}
     <button type="submit">Reset</button>
-</form>
-
+    </form>
+    </div>
 </body>
 </html>

@@ -10,9 +10,7 @@
     <div class="container-fluid" align="center"
     style="padding-top: 150px;
     padding-bottom: 50px;
-     background-color:#ccf2ff"
-
-    >
+     background-color:#ccf2ff">
     <form class="site-form" action="{% url 'accounts:login' %}" method="post">
         {%csrf_token%}
         <p class="text-white">{{ form.as_p }}</p>

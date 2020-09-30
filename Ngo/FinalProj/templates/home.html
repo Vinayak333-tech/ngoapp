@@ -1,4 +1,3 @@
-{% load check %}
 <html>
 <title>Homepage</title>
 <meta charset="UTF-8">
@@ -33,11 +32,10 @@ html,body,h1,h2,h3,h4 {font-family:"Lato", sans-serif}
     <form class="logout" action="{% url 'accounts:logout'%}" method="POST">
       {% csrf_token %}
       <div class="button" style="padding-left: 1000px;">
-        
-        {% if request|register_or_profile %}
-        <a style="margin-left: 40px; text-decoration: none;" href="{% url 'accounts:ngodetail' %}">Go to Profile |</a>
+        {% if val %}
+        <a style="margin-left: 20px; text-decoration: none;" href="{% url 'accounts:ngodetail' %}">Go to Profile |</a>
         <a style="margin-left: 85px; text-decoration: none;" href="{% url 'accounts:reset' %}"> Reset Password |</a>
-      <button style="border: none;" type="submit"> Logout</button>
+        <button style="border: none;" type="submit"> Logout</button>
         {% else %}
         <a style="margin-left: 40px; text-decoration: none;" href="{% url 'accounts:ngo_register' %}">Register your Ngo |</a>
         <a style="margin-left: 85px; text-decoration: none;" href="{% url 'accounts:reset' %}"> Reset Password |</a>

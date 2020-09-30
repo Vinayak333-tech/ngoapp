@@ -32,10 +32,17 @@ html,body,h1,h2,h3,h4 {font-family:"Lato", sans-serif}
     <form class="logout" action="{% url 'accounts:logout'%}" method="POST">
       {% csrf_token %}
       <div class="button" style="padding-left: 1000px;">
+        {% if val %}
         <a style="margin-left: 40px; text-decoration: none;" href="{% url 'accounts:ngodetail' %}">Go to Profile |</a>
-        <a style="margi-left: 85px; text-decoration: none;" href="{% url 'accounts:reset' %}"> Reset Password |</a>
+        <a style="margin-left: 85px; text-decoration: none;" href="{% url 'accounts:reset' %}"> Reset Password |</a>
       <button style="border: none;" type="submit"> Logout</button>
+        {% else %}
+        <a style="margin-left: 40px; text-decoration: none;" href="{% url 'accounts:ngo_register' %}">Register your Ngo |</a>
+        <a style="margin-left: 85px; text-decoration: none;" href="{% url 'accounts:reset' %}"> Reset Password |</a>
+      <button style="border: none;" type="submit"> Logout</button>
+        {% endif %}
 
+        
       </div>
   </form>
   <div>
@@ -101,7 +108,7 @@ html,body,h1,h2,h3,h4 {font-family:"Lato", sans-serif}
       <h3>{{count}}</h3>
     </div>
     <div class="w3-col l3 m6 w3-light-grey w3-container w3-padding-16">
-      <h3>Highest Equipment Donated</h3>
+      <h3>Best Donors</h3>
       {% for user in best_users %}
       <h3>{{ user.0}} {{user.1 }}</h3>
       {% endfor %}

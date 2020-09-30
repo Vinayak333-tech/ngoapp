@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ngo Detail</title>
+    <style>
+        body{
+            background-image: url(https://remotesitesolutions.com/newsite/wp-content/uploads/2013/02/remote-site-solutions-bg_ngo-sector.jpg);
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+        }
+        .container {
+        width: 100%;
+        height: 100%;
+        padding-top: 200px
+        }
+        .box {
+        border: 1px solid #fff;
+        padding: 50px;
+        width: 200px;
+        background-color: #fff;
+        opacity: 0.7;
+        }
+    </style>
+</head>
+<body >
+    <div style="padding-left: 750px;" class="links">
+        {% if user.is_authenticated %}
+        <button style="font-family: 'Times New Roman', Times, serif; font-weight: bolder;margin-left: 10px; padding:5px"><a style="color: black; text-decoration: none;" href="{% url 'accounts:donators' %}"> Want to see your Donators? </a></button>
+        <button style="font-family: 'Times New Roman', Times, serif; font-weight: bolder; margin-left: 20px; padding:5px"><a style="color: black; text-decoration: none;" href="{% url 'accounts:edit_view_add' %}">Add Requirement</a></button>
+        <button style="font-family: 'Times New Roman', Times, serif; font-weight: bolder; margin-left: 20px; padding:5px"><a style="color: black; text-decoration: none;" href="{% url 'accounts:edit_view' %}">Edit Your Requirement</a></button>
+        <button style="font-family: 'Times New Roman', Times, serif; font-weight: bolder; margin-left: 20px; padding:5px"><a style="color: black; text-decoration: none;"href="{% url 'accounts:delete_view' %}">Delete Requirement</a></button>
+        {% endif %}
+    </div>
+    <div align="center" class="container">
+        <div align="left" class="box">
+    
+    <h1>{{ngo.name}}</h1>
+    <div></div>
+    <h2>Founder: {{ngo.founder}}</h2>
+    <div></div>
+    {% for req in ngo.ngorequirementdetail_set.all %}
+    {% if req.quantity > 0 %}
+    {{req.req}}
+    {{req.quantity}}
+    <div></div>
+    {% endif %}
+    {% endfor %}
+    </div>
+</div>
+   
+</body>
+</html>
+
+    

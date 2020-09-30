@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit Requirements</title>
+    <style>
+        body{
+            background-image: url(https://wallpaperaccess.com/full/321170.jpg);
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+    </style>
+</head>
+<body>
+    <div  class="container">
+        <h1 align="center" style="padding-top: 100px;">Want to update your Medical Requirements?</h1>
+        <h3 align="center" style="padding-top: 50px;">Enter Requirement and its Quantity to Update : </h3>
+        <div>
+        {% if messages %}
+            {% for message in messages %}
+                <h4 align="center">{{message}}</h4>
+            {% endfor %}
+        {% endif %}
+        </div>
+        <form action="{% url 'accounts:edit_view' %}" method="post">
+        {%csrf_token%} 
+        <div style="padding-top: 20px; padding-left: 570px;">
+        <h4>Requirement :</h4><input type="text" name="requirement">
+        <h4>Quantity :</h4><input type="number" name="quantity">
+        <div style="padding-top: 20px;"></div>
+        <button style="font-family: Georgia, 'Times New Roman', Times, serif; font-size:large" type="submit">Edit</button>
+        </form>
+        </div>
+    </div>
+</body>
+</html>

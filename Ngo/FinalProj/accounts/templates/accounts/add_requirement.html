@@ -1,0 +1,25 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Add Requirement</title>
+    <style>
+        body{
+            background-size: cover;
+            background-image: url(https://image.freepik.com/free-photo/medical-stethoscope-isolated-with-black-background-medical-concept-stethoscope-black-background-with-space-text-health-concept-medical-conceptual_1391-769.jpg);
+        }
+    </style>
+</head>
+<body>
+    <div style="padding-left: 200px;">
+        <h1 style=" padding-top: 200px; color: whitesmoke;">Your NGO needs some more?</h1>
+        <h2 style="color: whitesmoke;">Add Your Requirement here</h2>
+        <form style="font-size: larger; font-weight: 800; padding-top: 10px; color: whitesmoke;" action = "{% url 'accounts:edit_view_add' %}" method="post" enctype="multipart/form-data">
+        {%csrf_token%}
+        {{form.as_p}}
+        <div style="padding-top: 10px;" class="button">
+        <button style="font-size:large; padding-top:5px" type="submit">Add Requirement</button>
+        </div>
+        </form>
+    </div>
+</body>
+</html>

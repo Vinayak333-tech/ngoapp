@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Delete Requirement</title>
+</head>
+<style>
+    body{
+        background-image: url(https://www.ppt-backgrounds.net/thumbs/medical-clipart-templates.jpeg);
+    }
+</style>
+<body>
+<div style="padding-top: 100px; padding-left:100px" class="container">
+    <div>
+        <h1>Already have what you want?</h1>
+        {% if messages %}
+            {% for message in messages %}
+                <h4 align="center">{{message}}</h4>
+            {% endfor %}
+        {% endif %}
+    </div>
+    <form action="{% url 'accounts:delete_view' %}" method="post">
+        {% csrf_token %}
+           <h2>Enter the name of the Requirement you wish to delete : </h2> <input type="text" name="req">
+        <div style=" padding-top: 20px;"> 
+        <button style="font-size:large;" type="submit">Delete</button>
+        </div>
+    </form>
+</div>
+</body>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DonaterInfo</title>
+    <style>
+        body{
+            background-image: url(https://lh3.googleusercontent.com/proxy/XJoRFM4xG7yOV64X1fEC7gWiaWgl0IYd7OcnXfPdAlRua8Op8R4aUldTBWmZF8l0LRk1LTkZ7lgS__tmCKXn63TNDgUGeS7J_OalraDgQJvZFeSNABE);
+        }
+    </style>
+</head>
+<body>
+    <div style="padding-left: 40px; padding-top: 40px;" class="container">
+    <h2 style="color: whitesmoke;">Confirm your Phone Number</h2>
+    <form action="{% url 'accounts:d_signup' %}" method="POST">
+        {% csrf_token %}
+        <strong style="font-size:x-large; color: whitesmoke;">Phone no : </strong><input type='text' name='phone'>
+        <input style="padding-left:10px" type='submit' value='Enter'> 
+    </form>
+</div>
+</body>
+</html>

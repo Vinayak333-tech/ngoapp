@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Donator</title>
+    <style>
+        body{
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-image: url(https://www.10wallpaper.com/wallpaper/2560x1600/1701/Blue_and_brown_starry_sky-Space_High_Quality_Wallpaper_2560x1600.jpg);
+        }
+        .container {
+        width: 100%;
+        height: 100%;
+        padding-top: 170px
+        }
+        .box {
+        border: 1px solid #fff;
+        padding: 50px;
+        width: 200px;
+        background-color: #fff;
+        opacity: 0.7;
+        font-weight: bolder;
+        }
+    </style>
+</head>
+<body>
+    <div style="padding-top: 5px; padding-left:1300px" class="button">
+    <button style="padding: 5px;" ><a style="font-size:large; color: black; font-weight: bolder; font-family: 'Times New Roman', Times, serif; text-decoration: none;" href="{% url 'accounts:d_signup' %}">Already a Donator?</a></button>
+    </div>
+        <form action="{% url 'accounts:donator' %}" method='POST'>
+    <div align="center" class="container">
+        <div align="left" class="box">
+        <form action="{% url 'accounts:donator' %}" method='POST'> 
+            {% csrf_token%}
+            {{form.as_p}}
+            <div class="button">
+            <input type='submit' value='Next'>
+            </div>
+            </form>
+        </div>
+    </div>
+</form>
+</body>
+</html>

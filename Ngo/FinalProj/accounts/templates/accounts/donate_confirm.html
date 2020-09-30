@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Donation Confirm</title>
+    <style>
+        body{
+            background-image: url(https://coolbackgrounds.io/images/backgrounds/index/compute-ea4c57a4.png);
+        }
+        .container {
+        width: 100%;
+        height: 100%;
+        padding-top: 170px
+        }
+        .box {
+        border: 1px solid #fff;
+        padding: 50px;
+        width: 500px;
+        background-color: #fff;
+        opacity: 0.7;
+        font-weight: bolder;
+        }
+    </style>
+</head>
+<body>
+    <div align="center" class="container">
+        {% if messages %}
+          {% for message in messages %}
+          <h3>{{message}}</h3>
+          {% endfor %}
+        {% endif %}
+        <div align="left" class="box">
+        <h1>Donation Confirmation Details</h1>
+        <form style="font-size:x-large;" action="{% url 'accounts:don_confirm' phone=phone %}" method='POST'>     
+            {% csrf_token %}
+            {{form.as_p}}
+            <div style="padding-left:10px" class="button">
+            <input style="font-family: Georgia, 'Times New Roman', Times, serif; font-size: x-large;" type='submit' value='Next'>
+            </div>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
+

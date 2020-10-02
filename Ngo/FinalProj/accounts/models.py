@@ -19,6 +19,9 @@ class NgoRequirementDetail(models.Model):
     req = models.CharField(max_length=100)
     quantity = models.IntegerField()
 
+    def __str__(self):
+        return self.req
+
 
 class Donator(models.Model):
     first_name = models.CharField(max_length=50, blank=True)
